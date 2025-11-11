@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro de Regras - Macaé RP</title>
+
+  <style>
+    /* ----- CONFIGURAÇÕES GERAIS ----- */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      margin: 0;
+      /* Adiciona rolagem suave ao clicar nos links do menu */
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    /* ----- 1. A BARRA LATERAL (MENU) ----- */
+    .sidebar {
+      width: 280px;
+      background-color: #004a99;
+      color: #ffffff;
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    /* Estilo para o Logótipo na Sidebar */
+    .sidebar-logo {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto 20px auto;
+      border-radius: 5px;
+    }
+
+    .sidebar h3 {
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    /* --- A LUPA DE BUSCA --- */
+    #buscaRegra {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    /* Estilo da lista de links do menu */
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      /* Aumentei o espaço para o logo */
+      max-height: calc(100vh - 220px);
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 10px 5px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #0056b3;
+    }
+
+    /* ----- 2. O CONTEÚDO PRINCIPAL ----- */
+    .content {
+      flex-grow: 1;
+      margin-left: 280px;
+      /* Mesmo valor da largura do .sidebar */
+      padding: 30px;
+    }
+
+    .content header {
+      border-bottom: 3px solid #eee;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .content h1 {
+      color: #004a99;
+      margin: 0;
+    }
+
+    /* Estilo dos títulos de cada secção */
+    .content h2 {
+      color: #004a99;
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 10px;
+      margin-top: 40px;
+      /* Isto é para os links do menu saltarem para o sítio certo */
+      scroll-margin-top: 20px;
+    }
+
+    /* Define o fundo branco para cada secção de regras */
+    .content section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    /* Listas */
+    .content ol,
+    .content ul {
+      padding-left: 30px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    /* Estilos para as Imagens das SAFEZONES */
+    .safezone-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .safezone-images figure {
+      margin: 0;
+      padding: 0;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .safezone-images img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .safezone-images figcaption {
+      text-align: center;
+      padding: 10px;
+      background-color: #f9f9f9;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav class="sidebar">
+
+      <img src="https://via.placeholder.com/200x80.png?text=MACAÉ+RP+LOGO" alt="Logo Macaé RP" class="sidebar-logo">
+
+      <h3>Índice de Regras</h3>
+      <input type="text" id="buscaRegra" placeholder="Buscar regra...">
+
+      <ul>
+        <li><a href="#discord">Regras Discord</a></li>
+        <li><a href="#personagem">Regras de Personagem</a></li>
+        <li><a href="#gerais">Regras Gerais</a></li>
+        <li><a href="#metagaming">Metagaming</a></li>
+        <li><a href="#rdm">RDM (Random Deathmatch)</a></li>
+        <li><a href="#vdm">VDM (Vehicle Deathmatch)</a></li>
+        <li><a href="#combatlogging">Combat Logging</a></li>
+        <li><a href="#powergaming">Power Gaming / Power-RP</a></li>
+        <li><a href="#amoravida">Amor à vida</a></li>
+        <li><a href="#anti-rp">Anti-RP</a></li>
+        <li><a href="#flaming">Flaming / Cop Bait / Dark RP</a></li>
+        <li><a href="#pichacao">Regras de Pichação</a></li>
+        <li><a href="#vendas">Regras de Vendas de Itens</a></li>
+        <li><a href="#celular">Regras do Celular</a></li>
+        <li><a href="#safezones">SAFEZONES</a></li>
+        <li><a href="#faccoes">Regras para Facções</a></li>
+        <li><a href="#guerra">Regras de Guerra</a></li>
+        <li><a href="#acoes">Regras de Ações</a></li>
+        <li><a href="#registradora">Registradora e Caixa</a></li>
+        <li><a href="#barbearia">Barbearia / Tatuagem</a></li>
+        <li><a href="#ammunation">Ammunation (Loja de Armas)</a></li>
+        <li><a href="#bebidas">Loja de Bebidas</a></li>
+        <li><a href="#departamentos">Loja de Departamentos</a></li>
+        <li><a href="#fazenda">Casa da Fazenda</a></li>
+        <li><a href="#mergulhador">Mergulhador</a></li>
+        <li><a href="#grapeseed">Grapeseed</a></li>
+        <li><a href="#gas">Companhia de Gás</a></li>
+        <li><a href="#joalheria">Joalheria</a></li>
+        <li><a href="#lifeinvader">Roubo a Life Invader</a></li>
+        <li><a href="#carroforte">Carro Forte</a></li>
+        <li><a href="#bobcat">Bobcat</a></li>
+        <li><a href="#fleeca">Banco Fleeca</a></li>
+        <li><a href="#paleto">Banco Paleto</a></li>
+        <li><a href="#central">Banco Central</a></li>
+        <li><a href="#niobio">Nióbio - Laboratório Humane</a></li>
+        <li><a href="#sucata">Roubo de Sucata</a></li>
+        <li><a href="#cegonha">Roubo de Caminhão Cegonha</a></li>
+        <li><a href="#helicrash">Helicrash</a></li>
+        <li><a href="#monitoramento">Monitoramento e Averiguação</a></li>
+        <li><a href="#helicoptero">Regras do Helicótero</a></li>
+        <li><a href="#negociacao">Regras de Negociação</a></li>
+        <li><a href="#pacificacao">Regras de Pacificação</a></li>
+        <li><a href="#patrocinadores">Regras de Patrocinadores</a></li>
+        <li><a href="#pd">PD do Personagem</a></li>
+        <li><a href="#resgate">Ação de Resgate</a></li>
+        <li><a href="#policia">Regras da Polícia</a></li>
+        <li><a href="#observacoes">Observações Finais</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <header>
+        <h1>Livro de Regras - Macaé RP</h1>
+        <p style="font-weight: bold; color: red;">O descumprimento das regras descritas neste documento pode gerar BANIMENTO PERMANENTE. Atente-se a todas elas.</p>
+      </header>
+
+      <section id="discord">
+        <h2>DAS REGRAS DO DISCORD</h2>
+        <ol>
+          <li>O contato com membros da staff via mensagem direta deve ser feito de forma clara e objetiva...</li>
+          <li>Proibido fazer qualquer tipo de divulgação não autorizada no chat geral do Discord...</li>
+          <li>Proibido utilizar canais específicos para fins aos quais ele não foi destinado...</li>
+          <li>Denúncias ou report de bugs devem ser feitos mediante vídeo e explicação...</li>
+        </ol>
+      </section>
+
+      <section id="personagem">
+        <h2>DAS REGRAS DE PERSONAGEM</h2>
+        <ol>
+          <li>Os personagens não devem conter nomes de cunho ofensivo...</li>
+          <li>Personagens adicionais não poderão compartilhar nenhum item, dinheiro, carro...</li>
+          <li>Os que forem setados em facções e tiverem segundo personagem na polícia...</li>
+          <li>Os personagens que forem setados em facções e saírem da mesma... não poderão regressar... por um prazo mínimo de 3 (três) dias...</li>
+        </ol>
+      </section>
+
+      <section id="gerais">
+        <h2>DAS REGRAS GERAIS</h2>
+        <ol>
+          <li>A discriminação é proibida expressamente...</li>
+          <li>Não é permitido sair do roleplay sob nenhuma circunstância.</li>
+          <li>É proibido fazer chamados para qualquer serviço com intuito de sequestrar, roubar ou emboscar...</li>
+          <li>Na utilização de máscaras, é PERMITIDO efetuar o reconhecimento por voz.</li>
+          <li>Em caso de policiais sequestrados, podem ter pertences subtraídos: Celular e rádio...</li>
+          <li>Você não pode pegar uma pessoa nocauteada, reanimá-la e obrigá-la a passar informação...</li>
+          <li>É extremamente proibido qualquer RP envolvendo assédio, importunação sexual, racismo, etc.</li>
+          <li>Estando em serviço legal, fica proibido qualquer tipo de atividade ilegal.</li>
+          <li>Após ser nocauteado propositalmente, você esquece de todo o ocorrido...</li>
+          <li>As armas de caça são de uso exclusivo da profissão de caçador...</li>
+          <li>Quantidade máxima permitida de pessoas no porta-malas: duas (2).</li>
+          <li>É proibido todo e qualquer tipo de comercialização de itens VIP.</li>
+          <li>É proibido qualquer tipo de assalto a players.</li>
+          <li>É proibido o roubo de veículos de players mediante a agressão...</li>
+          <li>É proibido Metagaming, RDM, VDM, Combat Logging, Power-RP, falta de amor à vida...</li>
+          <li>É proibido fazer qualquer tipo de modificações visuais e sonoras que obtenha alguma vantagem...</li>
+          <li>Proibido aliança de qualquer facção em ações de rua e resgates...</li>
+          <li>É proibido "campar" os hospitais ilegais...</li>
+          <li>O jogador que for morto em uma troca de tiro fica impedido de voltar...</li>
+          <li>Durante qualquer ação que envolva troca de tiro, os jogadores não podem remover a roupa de seu grupo...</li>
+          <li>O jogador que não for setado em uma facção só poderá participar de atividades ligadas a roleplay...</li>
+          <li>O sistema de HP ilegal deve ser utilizado como recurso primário...</li>
+          <li>Fica proibida a utilização de qualquer veículo alugado para realizar ações de fuga...</li>
+          <li>Em casos de brigas de rua onde NÃO FOI DECLARADA GUERRA, as facções tem até 24h para se resolver...</li>
+          <li>Fica proibido sabotar veículos envolvidos em ações fechadas.</li>
+          <li>Todo e qualquer grupo que queira entrar em conflito deve usar a roupa completa do grupo.</li>
+        </ol>
+      </section>
+
+      <section id="metagaming">
+        <h2>Metagaming</h2>
+        <p>Utilizar informações recebidas fora do RP (Discord, stream, chat da stream, etc) dentro do jogo.</p>
+        <ul>
+          <li>Exemplo: pegar informações de alguma live ou de um amigo para interferir em um Roleplay.</li>
+        </ul>
+      </section>
+
+      <section id="rdm">
+        <h2>RDM (Random Deathmatch)</h2>
+        <p>É a ação de matar sem nenhum motivo, ou simplesmente pelo desejo de matar.</p>
+      </section>
+
+      <section id="vdm">
+        <h2>VDM (Vehicle Deathmatch)</h2>
+        <p>É a ação de usar veículos como arma para matar ou atropelar alguém propositalmente.</p>
+      </section>
+
+      <section id="combatlogging">
+        <h2>Combat Logging</h2>
+        <p>Deslogar durante uma ação em que você esteja participando direta ou indiretamente...</p>
+        <p><b>Obs:</b> Em caso de crash, o jogador deve voltar para o servidor e sair da ação imediatamente...</p>
+      </section>
+
+      <section id="powergaming">
+        <h2>Power-RP / Power Gaming</h2>
+        <p><b>Power-RP:</b> Forçar alguma interação não prevista ou adequada no RP...</p>
+        <p><b>Power Gaming:</b></p>
+        <ol>
+          <li>O PowerGaming é proibido, com exceções de saltos e rampas.com veículos apenas...</li>
+          <li>É expressamente proibido utilizar veículos para causar danos... ("bate-bate").</li>
+          <li>Fica permitido apenas o uso de caminhonetes, SUVs e motos de trilha específicas para subir montanhas...</li>
+        </ol>
+      </section>
+
+      <section id="amoravida">
+        <h2>Amor à vida</h2>
+        <ol>
+          <li>Não tome atitudes que você não tomaria na vida real. Valorize a sua vida...</li>
+          <li>A quebra desta regra poderá ocasionar na morte permanente do seu personagem.</li>
+        </ol>
+      </section>
+
+      <section id="anti-rp">
+        <h2>Anti-RP</h2>
+        <ol>
+          <li>Ter condutas que vão contra o bom andamento do roleplay...</li>
+          <li>É proibido qualquer ato de corrupção na Polícia ou Hospital.</li>
+        </ol>
+      </section>
+
+      <section id="flaming">
+        <h2>Flaming / Cop Bait / Dark RP</h2>
+        <p><b>Flaming:</b> É qualquer interação hostil/ofensiva que inflame alguma situação...</p>
+        <p><b>Cop Bait:</b> É proibido efetuar chamado para qualquer tipo de serviço (polícia, hospital...) com intuito de sequestrar...</p>
+        <p><b>Dark RP:</b> A prática de Dark RP (assédio, terrorismo, suicídio, tortura, racismo, etc) é inaceitável e culminam em BANIMENTO PERMANENTE.</p>
+      </section>
+
+      <section id="pichacao">
+        <h2>DAS REGRAS DE PICHAÇÃO</h2>
+        <ol>
+          <li>As pichações DEVEM possuir ligação com o que acontece no roleplay...</li>
+          <li>O ato de pichar qualquer lugar da cidade fazendo apologia a facções criminosas... é inaceitável (BANIMENTO PERMANENTE).</li>
+          <li>É terminantemente proibido ferir a honra de outro jogador...</li>
+        </ol>
+      </section>
+
+      <section id="vendas">
+        <h2>DAS REGRAS DE VENDAS DE ITENS</h2>
+        <p>É expressamente proibida a venda de quaisquer itens do jogo (casas, dinheiro, veículos...) por dinheiro real...</p>
+        <p><b>Punição:</b> Banimento permanente do servidor...</p>
+      </section>
+
+      <section id="celular">
+        <h2>DAS REGRAS DO CELULAR</h2>
+        <ol>
+          <li><b>Permissão para pegar:</b> É permitido pegar o celular de outro jogador com justificativa válida...</li>
+          <li><b>Permissão para acessar:</b> É permitido acessar o celular de outro jogador desde que haja um motivo real...</li>
+          <li><b>Obrigação de fornecer a senha:</b> É obrigatório fornecer a senha de acesso... Recusar-se implica em risco de PD.</li>
+          <li><b>Proibição de transações:</b> É estritamente proibido usar o acesso ao celular para realizar transações...</li>
+          <li><b>Acesso policial:</b> Para a polícia acessar o celular de um jogador, é necessário consentimento ou mandado...</li>
+          <li><b>Uso do celular:</b> Todo e qualquer uso do celular precisa se limitar ao universo do jogo...</li>
+        </ol>
+      </section>
+
+      <section id="safezones">
+        <h2>SAFEZONES</h2>
+        <p>Locais onde é proibido qualquer ato hostil.</p>
+        <ul>
+          <li>Hospital</li>
+          <li>Praça</li>
+          <li>Mecânica (Sul)</li>
+          <li>Interior Jubilu Creations</li>
+          <li>Locais de patrocínio</li>
+        </ul>
+
+        <div class="safezone-images">
+          <figure>
+            <img src="https://via.placeholder.com/300x200.png?text=Hospital" alt="Imagem da Safezone Hospital">
+            <figcaption>Hospital</figcaption>
+          </figure>
+          <figure>
+            <img src="https://via.placeholder.com/300x200.png?text=Praça" alt="Imagem da Safezone Praça">
+            <figcaption>Praça</figcaption>
+          </figure>
+          <figure>
+            <img src="https://via.placeholder.com/300x200.png?text=Mecânica" alt="Imagem da Safezone Mecânica (Sul)">
+            <figcaption>Mecânica (Sul)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="faccoes">
+        <h2>DAS REGRAS PARA FACÇÕES E CRIAÇÃO DE CONTEÚDO</h2>
+        <ol>
+          <li><b>Limite de membros:</b> ...realizado através do tablet da facção.</li>
+          <li><b>Uniforme de guerra:</b> ...todas as facções envolvidas devem estar uniformizadas...</li>
+          <li>Nos casos em que houver junção de facções, o uniforme a ser utilizado deverá ser da facção que iniciou a ação.</li>
+          <li><b>Proibido junção de facções</b> sem autorização prévia...</li>
+        </ol>
+      </section>
+
+      <section id="guerra">
+        <h2>DAS REGRAS DE GUERRA</h2>
+        <p>Para declarar uma guerra, entre em contato no RP com os líderes do ilegal.</p>
+      </section>
+
+      <section id="acoes">
+        <h2>DAS REGRAS DE AÇÕES</h2>
+        <ol>
+          <li>É proibido utilizar TODO tipo de droga ilegal durante ações fechadas...</li>
+          <li>É proibido a utilização de capacete em qualquer tipo de ação.</li>
+          <li>Reféns não podem ter envolvimento com sequestradores...</li>
+          <li>Ao crashar em uma ação... o player NÃO pode voltar até que a ação termine.</li>
+          <li>Após ganhar ações contra policiais, não pode chamar os paramédicos, utilize o Hospital Clandestino.</li>
+          <li>Proibida a utilização de qualquer arma de fogo durante as Corridas Clandestinas.</li>
+          <li>Está proibido utilizar mais de 1 colete em ações fechadas...</li>
+          <li>É proibido bloquear a passagem de qualquer local durante as ações.</li>
+          <li>É proibido usar o /gg antes do término da ação...</li>
+          <li>É proibido se conectar ao servidor após o início de uma ação para participar da mesma.</li>
+          <li>Após ser reanimado, não volte para ação...</li>
+          <li>Toda e qualquer ação fechada deve ser gravada...</li>
+          <li>É proibido fugir... para locais com apenas uma entrada...</li>
+          <li>Fica limitado a 6 no fundo do Nióbio em ações.</li>
+          <li>Proibido entrar em interiores de casas em ações fechadas.</li>
+          <li>Fica proibido fazer ações grandes (Paleto, Central, Niobio) entre 02:00 e 11:00...</li>
+          <li>É permitido levar apenas UMA (01) ação fechada para fora... por semana.</li>
+          <li>Os policiais responsáveis... deverão entrar simultaneamente no perímetro...</li>
+          <li>Proibido a utilização de gasolina como arma...</li>
+          <li>Em ações fechadas fica autorizado o uso de 2 veículos dentro do perímetro (para cover).</li>
+          <li>Fica proibido levar ações blipadas para outros locais...</li>
+          <li>Limites de ações por semana: Fleeca/Joalheria (9), Central/Paleto (2), Nióbio (1).</li>
+          <li>Fica vetado utilizar props que possivelmente deixem os personagens invisíveis...</li>
+          <li>Fica limitado a apenas 2 ações na fuga por semana (Fleeca, Joalheria, Central).</li>
+          <li>Ações de confronto direto só podem ser iniciadas após o término do anuncio...</li>
+          <li>Qualquer pessoa que logar após o início do confronto NÃO PODERÁ participar.</li>
+          <li>Fica proibido o uso do parkour... em ações fechadas.</li>
+          <li>Caso uma ação fechada já tenha sido puxada, você não poderá intervir.</li>
+        </ol>
+      </section>
+
+      <section id="registradora">
+        <h2>REGISTRADORA E CAIXA ELETRÔNICO</h2>
+        <ul>
+          <li><b>Máximo de bandidos:</b> 1 veículo cheio.</li>
+          <li><b>Máximo de policiais:</b> 3 viaturas.</li>
+          <li><b>Armamento:</b> Não são permitidas armas brancas nem armas de fogo.</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="barbearia">
+        <h2>BARBEARIA / LOJA DE TATUAGENS</h2>
+        <ul>
+          <li><b>Máximo de bandidos:</b> 4 (Barbearia) / 2 (Tatuagem).</li>
+          <li><b>Máximo de policiais:</b> 4 (Barbearia) / 2 (Tatuagem)</li>
+          <li><b>Armamento:</b> Obrigatório arma branca. Proibido arma de fogo.</li>
+          <li><b>Negociação:</b> Obrigatória. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="ammunation">
+        <h2>AMMUNATION (LOJA DE ARMAS)</h2>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 2. (Com estande: 0 fora / Sem estande: 1 fora).</li>
+          <li><b>Máximo de policiais:</b> 3.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Obrigatória. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="bebidas">
+        <h2>LOJA DE BEBIDAS</h2>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 3. / <b>Máximo de policiais:</b> 4.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Obrigatória. / <b>Refém:</b> Proibido.</li>
+          <li><b>Obs:</b> Proibido teti chão.</li>
+        </ul>
+      </section>
+
+      <section id="departamentos">
+        <h2>LOJA DE DEPARTAMENTOS</h2>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 4 (máx 2 fora). / <b>Máximo de policiais:</b> 5.</li>
+          <li><b>Veículos:</b> 1 veículo (4 rodas) ou 2 motos.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Obrigatória. / <b>Refém:</b> Opcional, máximo 2.</li>
+        </ul>
+      </section>
+
+      <section id="fazenda">
+        <h2>CASA DA FAZENDA</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 7. / <b>Máximo de policiais:</b> 8.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="mergulhador">
+        <h2>MERGULHADOR</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 6. / <b>Máximo de policiais:</b> 8.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="grapeseed">
+        <h2>GRAPESEED</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 6. / <b>Máximo de policiais:</b> 7.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="gas">
+        <h2>COMPANHIA DE GÁS</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 6. / <b>Máximo de policiais:</b> 8.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="joalheria">
+        <h2>JOALHERIA</h2>
+        <ul>
+          <li><b>Máximo de bandidos:</b> 7 (máx 3 fora). / <b>Máximo de oficiais:</b> 9.</li>
+          <li><b>Veículos:</b> Máximo 3 (em caso de fuga).</li>
+          <li><b>Armamento:</b> No mínimo Submetralhadora.</li>
+          <li><b>Negociação:</b> Obrigatória. / <b>Refém:</b> Opcional, máximo 3.</li>
+          <li><b>Obs:</b> Proibido INTERIORES do perímetro (Prefeitura).</li>
+        </ul>
+      </section>
+
+      <section id="lifeinvader">
+        <h2>ROUBO A LIFE INVADER</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 8. / <b>Máximo de policiais:</b> 10.</li>
+          <li><b>Armamento:</b> Todos de Pistola (exceto Magnum, Ap-Pistol, Glock 18C).</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="carroforte">
+        <h2>CARRO FORTE</h2>
+        <p>Confronto direto ou fuga.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 6. / <b>Máximo de policiais:</b> 8.</li>
+          <li><b>Armamento:</b> Mínimo SMG, obrigatório ter 2 RIFLES.</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Refém:</b> Proibido.</li>
+          <li><b>Açougue:</b> Proibido helicóptero. Bandidos todos dentro.</li>
+          <li><b>Faculdade:</b> Proibido bugar head-glitch.</li>
+          <li><b>Groove:</b> Proibido teti chão. Heli visual sem atirador.</li>
+        </ul>
+      </section>
+
+      <section id="bobcat">
+        <h2>BOBCAT</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Mínimo 5, Máximo 6 (máx 2 fora). / <b>Máximo de policiais:</b> 7.</li>
+          <li><b>Veículos:</b> Máximo 3. / <b>Armamento:</b> Submetralhadora.</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Obs:</b> Sem helicóptero.</li>
+        </ul>
+      </section>
+
+      <section id="fleeca">
+        <h2>BANCO FLEECA</h2>
+        <ul>
+          <li><b>Bandidos:</b> Mínimo 6, Máximo 8 (mín 3 dentro). / <b>Máximo de policiais:</b> 9.</li>
+          <li><b>Veículos:</b> Máximo 3. / <b>Negociação:</b> Obrigatória.</li>
+          <li><b>Armamento (Padrão):</b> Mínimo SMG, obrigatório 4 Rifles.</li>
+          <li><b>Refém:</b> Opcional, máximo 3.</li>
+        </ul>
+        <h4>Regras Específicas por Local:</h4>
+        <ul>
+          <li><b>Praia:</b> Somente SMG. Heli drone + teti chão. Proibido interior da lojinha...</li>
+          <li><b>Shopping:</b> Armamento Padrão. Com atirador, max 4 em prédios. Sem atirador, max 3...</li>
+          <li><b>Chaves:</b> Armamento Padrão. Máximo 3 em prédios. Se teti chão, proibido pista de skate.</li>
+          <li><b>Praça e Rota 68:</b> Armamento Padrão. Finalidade é a FUGA...</li>
+          <li><b>Life Invader:</b> Heli drone + teti chão. Proibido interior da piscina...</li>
+        </ul>
+      </section>
+
+      <section id="paleto">
+        <h2>BANCO PALETO</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 10. / <b>Máximo de policiais:</b> 12.</li>
+          <li><b>Armamento:</b> Todos de Rifle. / <b>Refém:</b> Proibido.</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Obs:</b> Máximo 6 no GALINHEIRO.</li>
+        </ul>
+      </section>
+
+      <section id="central">
+        <h2>BANCO CENTRAL</h2>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 10. (Fora: Máx 3 prédios ou 5 chão).</li>
+          <li><b>Veículos:</b> Máximo 3. / <b>Máximo de policiais:</b> 12.</li>
+          <li><b>Armamento:</b> Obrigatório RIFLE. / <b>Negociação:</b> Obrigatória.</li>
+        </ul>
+        <h4>Com Refém:</h4>
+        <ul>
+          <li><b>Refém:</b> Permitido, máximo 4 (para tirar atiradores OU proibir heli, não os dois).</li>
+          <li><b>Obs:</b> Proibido bandidos fora se a ação for na fuga.</li>
+        </ul>
+        <h4>Sem Refém:</h4>
+        <ul>
+          <li><b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="niobio">
+        <h2>NIÓBIO - LABORATÓRIO HUMANE</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Bandidos:</b> Obrigatório 12 (sem limites fora). / <b>Máximo de policiais:</b> 17.</li>
+          <li><b>Armamento:</b> Obrigatório RIFLE. / <b>Refém:</b> Proibido.</li>
+          <li><b>Negociação:</b> Inexistente. / <b>Obs:</b> Proibido marcar a porta da água...</li>
+        </ul>
+      </section>
+
+      <section id="sucata">
+        <h2>ROUBO DE SUCATA</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Máximo de bandidos:</b> 6. / <b>Máximo de policiais:</b> 8.</li>
+          <li><b>Armamento:</b> Obrigatório ter 6 pistolas. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="cegonha">
+        <h2>ROUBO DE CAMINHÃO CEGONHA</h2>
+        <p>Confronto direto.</p>
+        <ul>
+          <li><b>Máximo de bandidos:</b> 1 carro completo. / <b>Máximo de policiais:</b> 3 unidades.</li>
+          <li><b>Armamento:</b> Proibido. / <b>Refém:</b> Proibido.</li>
+        </ul>
+      </section>
+
+      <section id="helicrash">
+        <h2>HELICRASH</h2>
+        <ul>
+          <li>Máximo de 10 participantes por facção/grupo.</li>
+          <li>Máximo de 2 veículos por facção/grupo.</li>
+          <li>PROIBIDO o roubo de veículos durante o evento.</li>
+          <li>OBRIGATÓRIO utilizar a roupa completa da facção/grupo.</li>
+          <li>Reanimação permitida somente após o término completo da ação.</li>
+        </ul>
+      </section>
+
+      <section id="monitoramento">
+        <h2>DO MONITORAMENTO ADMINISTRATIVO E PRODUÇÃO DE PROVAS</h2>
+        <p>Todos os jogadores estão sujeitos à constante análise pela administração...</p>
+        <h4>DO PROCEDIMENTO DE AVERIGUAÇÃO (TELAGEM)</h4>
+        <p>A administração poderá manter permanentemente banido quem recusar a telagem.</p>
+        <ol>
+          <li>Ao suspeitar de um jogador, a administração poderá suspendê-lo temporariamente.</li>
+          <li>O jogador suspenso terá prazos para iniciar contato (1h se logado, 12h se deslogado)...</li>
+          <li>O jogador deverá seguir as instruções para ser telado via Echo e AnyDesk.</li>
+          <li>Após a telagem, pode ocorrer a liberação ou banimento permanente se observados softwares maliciosos...</li>
+          <li>Jogadores que recusarem a telagem serão banidos por suspeita de cheat.</li>
+        </ol>
+      </section>
+
+      <section id="helicoptero">
+        <h2>DAS REGRAS DO HELICÓPTERO</h2>
+        <ol>
+          <li>O helicóptero só pode ser utilizado por habilitados com brevê.</li>
+          <li>Deverá pousar apenas em locais adequados.</li>
+          <li>Está sujeito às normas de táxi-aéreo (altura, manobras).</li>
+          <li>Sob hipótese alguma pode-se passar a placa em um helicóptero (Anti-RP).</li>
+        </ol>
+      </section>
+
+      <section id="negociacao">
+        <h2>DAS REGRAS DE NEGOCIAÇÃO</h2>
+        <ol>
+          <li>Cada refém te dá direito a uma única requisição (Ex: 1 refém = retirar atirador).</li>
+          <li>Não é permitido a negociação de refém por armamento ou dinheiro.</li>
+        </ol>
+      </section>
+
+      <section id="pacificacao">
+        <h2>DAS REGRAS DE PACIFICAÇÃO</h2>
+        <ol>
+          <li>O lado derrotado da pacificação deve obrigatoriamente dar "/GG" ao término da ação.</li>
+        </ol>
+      </section>
+
+      <section id="patrocinadores">
+        <h2>DAS REGRAS DE PATROCINADORES</h2>
+        <ol>
+          <li>É proibido qualquer tipo de crime relacionado a veículos, locais e uniformes de patrocinadores.</li>
+          <li>É proibido abandonar veículos de patrocinadores...</li>
+        </ol>
+      </section>
+
+      <section id="pd">
+        <h2>DO PD DO PERSONAGEM (Permadeath)</h2>
+        <p>O PD DO PERSONAGEM é quando você perdeu definitivamente o seu personagem. Aparecer com o mesmo personagem ou características é BAN INDETERMINADO.</p>
+        <h4>MOTIVOS QUE LEVAM A TOMAR PD:</h4>
+        <p>Qualquer indício de falta de amor a vida:</p>
+        <ul>
+          <li><b>Pode dar motivos para os seus sequestradores te matarem?</b> R: Não.</li>
+          <li><b>Pode dar de herói contra um rival em clara maioria numérica armada?</b> R: Não.</li>
+          <li><b>Pode ficar usando rádio e celular na frente dos sequestradores?</b> R: Não.</li>
+          <li><b>Bandido perdeu a fuga, 5 policiais apontando, e ele atirou. É caso de PD?</b> R: Sim, se ele morrer.</li>
+          <li><b>Se mandarem você fazer algo no celular e você fizer o contrário?</b> R: Terá o PD autorizado.</li>
+        </ul>
+      </section>
+
+      <section id="resgate">
+        <h2>DA AÇÃO DE RESGATE</h2>
+        <ol>
+          <li>Permitido resgates após ações de RUA em que o resgatado tenha pego mais(+) de 200 serviços. (PROIBIDO JUNTAR FACÇÕES e PROIBIDO RESGATE EM AÇÕES FECHADAS).</li>
+          <li>Os presos com mais(+) de 200 serviços tem o direito a uma ligação.</li>
+        </ol>
+      </section>
+
+      <section id="policia">
+        <h2>DAS REGRAS DA POLÍCIA</h2>
+        <ol>
+          <li>Permitido somente o uso de armamento Policial.</li>
+          <li>Proibido o uso de carros que não sejam VTRs para obter vantagem.</li>
+          <li>Proibido qualquer ato de corrupção.</li>
+          <li>Proibido retirar qualquer item do bandido sem que seja em uma unidade Policial...</li>
+          <li>O uso de máscara, colete balístico ou armamento nas costas está sujeito a revista...</li>
+          <li>O uso de armamento deverá ser respeitado de acordo com a patente ou unidade.</li>
+          <li>Os policiais não estão autorizados a retornar após cair em uma ação de COD5...</li>
+          <li>Durante uma ação fechada, cada policial pode utilizar somente a sua smoke...</li>
+          <li><b>OBS:</b> Cobrar procedimentos policiais dentro do jogo será considerado metagaming.</li>
+        </ol>
+      </section>
+
+      <section id="observacoes">
+        <h2>OBSERVAÇÕES:</h2>
+        <ol>
+          <li>Todas as regras acima descritas deverão ser cumpridas...</li>
+          <li>Constam deste documento todas as regras para o bom e saudável funcionamento do servidor...</li>
+          <li>...é fundamental que os players estejam constantemente atualizados das regras...</li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+  <script>
+    /* Espera o HTML carregar completamente antes de rodar o script */
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Encontrar os elementos que vamos usar
+      const campoBusca = document.getElementById('buscaRegra');
+      // Seleciona TODOS os itens 'li' (cada linha do menu)
+      const itensMenu = document.querySelectorAll('.sidebar ul li');
+      // 2. Adicionar o evento "keyup" (quando o usuário solta uma tecla)
+      campoBusca.addEventListener('keyup', function() {
+        // 3. Pega o valor digitado e converte para minúsculas
+        const termoBuscado = campoBusca.value.toLowerCase();
+        // 4. Passa por cada item do menu (um por um)
+        itensMenu.forEach(function(item) {
+          // Pega o texto do link dentro do 'li' e converte para minúsculas
+          const textoItem = item.textContent.toLowerCase();
+          // 5. Compara o texto do item com o termo buscado
+          if (textoItem.includes(termoBuscado)) {
+            // 6. Se o texto INCLUIR o termo, mostra o item
+            item.style.display = '';
+          } else {
+            // 7. Se NÃO INCLUIR, esconde o item
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

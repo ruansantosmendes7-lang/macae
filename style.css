@@ -1,0 +1,150 @@
+/* ----- CONFIGURAÇÕES GERAIS ----- */
+body {
+    font-family: Arial, sans-serif;
+    /* Fundo azul muito claro, quase branco */
+    background-color: #f4f7fa; 
+    color: #333; /* Cor do texto principal */
+    margin: 0;
+    /* Adiciona rolagem suave ao clicar nos links do menu */
+    scroll-behavior: smooth;
+}
+.container { 
+    display: flex; 
+}
+
+/* ----- 1. A BARRA LATERAL (MENU) ----- */
+.sidebar {
+    width: 280px; 
+    background-color: #004a99; 
+    color: #ffffff; 
+    height: 100vh; 
+    position: fixed; 
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box; 
+}
+
+/* Estilo para o Logótipo na Sidebar */
+.sidebar-logo {
+    width: 100%; 
+    max-width: 200px;
+    display: block;
+    margin: 0 auto 20px auto; 
+    border-radius: 5px; 
+}
+
+.sidebar h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* --- A LUPA DE BUSCA --- */
+#buscaRegra {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 14px;
+}
+
+/* Estilo da lista de links do menu */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    /* Aumentei o espaço para o logo */
+    max-height: calc(100vh - 220px); 
+    overflow-y: auto;
+}
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff; 
+    padding: 10px 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s; 
+}
+.sidebar a:hover {
+    background-color: #0056b3; 
+}
+
+/* ----- 2. O CONTEÚDO PRINCIPAL ----- */
+.content {
+    flex-grow: 1; 
+    margin-left: 280px; /* Mesmo valor da largura do .sidebar */
+    padding: 30px;
+}
+.content header {
+    border-bottom: 3px solid #eee;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.content h1 {
+    color: #004a99; 
+    margin: 0;
+}
+
+/* Estilo dos títulos de cada secção */
+.content h2 {
+    color: #004a99; 
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+    margin-top: 40px; 
+    
+    /* Isto é para os links do menu saltarem para o sítio certo */
+    scroll-margin-top: 20px;
+}
+
+/* Define o fundo branco para cada secção de regras */
+.content section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+/* Listas */
+.content ol, .content ul { 
+    padding-left: 30px; 
+}
+.content li {
+    margin-bottom: 10px; 
+    line-height: 1.6; 
+}
+
+/* Estilos para as Imagens das SAFEZONES */
+.safezone-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+    margin-top: 20px;
+}
+.safezone-images figure {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.safezone-images img {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+}
+.safezone-images figcaption {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #555;
+}
